@@ -23,7 +23,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-    "moduleResolution": "node",
+    "moduleResolution": "classic",
     "baseUrl": ".",
     "paths": {
       "@/*": ["All-swap/*"]
