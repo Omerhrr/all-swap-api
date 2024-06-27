@@ -2,24 +2,23 @@
   "name": "multi-swap-api",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "tsc",
-    "start": "node dist/api/index.js"
+    "build": "tsc"
   },
   "dependencies": {
-    "@hono/node-server": "^1.11.3",
+    "@hono/node-server": "^1.11.4",
     "@hono/swagger-ui": "^0.3.0",
     "@hono/zod-openapi": "^0.14.5",
     "@jup-ag/api": "^6.0.23",
+    "@netlify/functions": "^2.8.0",
     "@solana/web3.js": "^1.91.8",
     "express": "^4.17.1",
+    "hon": "^0.1.0",
     "hono": "^4.4.7"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1",
     "prettier": "^3.3.2",
+    "tsx": "^4.7.1",
     "vercel": "^28.20.0"
   }
-
 }

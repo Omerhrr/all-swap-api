@@ -1,9 +1,9 @@
-
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { handle } from '@hono/node-server/vercel';
 import { cors } from 'hono/cors';
 import { swaggerUI } from '@hono/swagger-ui';
-import swapRoutes from '../routes/swap';
+import swapRoutes from '../../routes/swap';
+import { Context } from '@netlify/functions';
 
 const app = new OpenAPIHono();
 app.use('/*', cors());
@@ -26,4 +26,16 @@ app.get(
   }),
 );
 
-export default handle(app);
+export const handler = async (event: Context) => {
+  const res = await app.fetch(event.rawUrl, {
+    method: event.httpMethod,
+    headers: event.headers as HeadersInit,
+    body: event.body,
+  });
+
+  return {
+    statusCode: res.status,
+    headers: Object.fromEntries(res.headers.entries()),
+    body: await res.text(),
+  };
+};
